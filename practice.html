@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Animate a marker along line</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiamFrZWJhZWsiLCJhIjoiY2tqbG50NWtiM3ZkbzJ6bjB3emVnaHkzaiJ9.MKKthg-6l0w0b3iBkVETcQ';
+var map = L.mapbox.map('map')
+  .setView([0, 0], 1)
+  .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+
+// Generate a GeoJSON line. You could also load GeoJSON via AJAX
+// or generate it some other way.
+var geojson = { type: 'LineString', coordinates: [] };
+var start = [70, 30];
+var momentum = [5, -5];
+
+for (var i = 0; i < 10; i++) {
+    start[0] += momentum[0];
+    start[1] += momentum[1];
+    if (start[1] > 60 || start[1] < -60) momentum[1] *= -1;
+    if (start[0] > 170 || start[0] < -170) momentum[0] *= -1;
+    geojson.coordinates.push(start.slice());
+}
+
+// Add this generated geojson object to the map.
+L.geoJson(geojson).addTo(map);
+
+// Create a counter with a value of 0.
+var j = 0;
+
+// Create a marker and add it to the map.
+var marker = L.marker([0, 0], {
+  icon: L.divIcon({
+    className: 'svg-marker',
+    html: '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path d="M15 6.818V8.5l-6.5-1-.318 4.773L11 14v1l-3.5-.682L4 15v-1l2.818-1.727L6.5 7.5 0 8.5V6.818L6.5 4.5v-3s0-1.5 1-1.5 1 1.5 1 1.5v2.818l6.5 2.5z"/></svg>',
+    iconSize: [24, 24],
+  })
+}).addTo(map);
+
+tick();
+function tick() {
+    // Set the marker to be at the same point as one
+    // of the segments or the line.
+    marker.setLatLng(L.latLng(
+        geojson.coordinates[j][1],
+        geojson.coordinates[j][0]));
+
+    // Move to the next point of the line
+    // until `j` reaches the length of the array.
+    if (++j < geojson.coordinates.length) setTimeout(tick, 300);
+}
+</script>
+</body>
+</html>

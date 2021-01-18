@@ -1,0 +1,679 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: #28B463 ;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+}
+
+header div {
+    margin: 10px;
+}
+
+header .logo {
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
+}
+
+header .user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+    height: 500px;
+    color: aliceblue;
+    border-radius: 5px;
+    background-color: #212F3D;
+}
+
+/* navigator - side bar */
+
+main .side-bar {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    height: 100%;
+    z-index: 3;
+    
+}
+
+main .side-bar .direction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 20px;
+    font-size: 20px;
+    background-color: #808B96;
+}
+
+main .side-bar .direction i:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+main .side-bar .navigator{
+    
+    height: 100%;
+    width: 200px;
+    font-size: 14px;
+    background-color: #566573;
+}
+
+main .side-bar .navigator ul {
+    padding: 5px;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+main .side-bar .navigator ul strong{
+    line-height: 23px;
+    font-size: 18px;
+}
+
+/* main screen */
+
+main .main-screen {
+    display: flex;
+    padding: 0 0 0 7%;
+}
+
+main .main-contents {
+    position: relative;
+    display: block;
+    margin: 50px;
+
+    font-size: 20px;
+    line-height: 28px;
+}
+
+main .main-contents .contents-container {
+    display: flex;
+    flex-direction: row;
+}
+
+main .main-contents .contents-container .contents-explain{
+    width: 500px;
+}
+
+main .main-contents .page1 {
+    display: flex;
+    flex-direction: column;
+}
+
+main .main-contents .page2 {
+    display: flex;
+    flex-direction: row;
+}
+
+main .main-contents .page1 {
+    position: absolute;
+    width: 750px;
+}
+
+main .main-contents .page1 .photos-intro{
+    overflow: auto;
+    white-space: nowrap;
+    margin: 50px 0px;
+    width: 1000px;
+    height: 230px;
+}
+
+main .main-contents .page1 .photos-intro img{
+    width: 300px;
+    height: 200px;
+}
+
+main .main-contents .page1 .photos-intro .zoom-in {
+    display: absolute;
+    width: 700px;
+    height: 400px;
+    z-index: 4;
+}
+
+main .main-contents .page1 .photos-intro img:hover{
+    cursor: zoom-in;
+    opacity: 0.5;
+}
+
+main .main-contents .page1 .zoomed-in-photo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 450px;
+    margin-top: -225px; /* Half the height */
+    margin-left: -300px; /* Half the width */
+    background-size: cover;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+main .main-contents .page1 .zoomed-in-photo:hover {
+    cursor: zoom-out;
+}
+
+
+.contents-photo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 300px;
+    margin-top: -150px; /* Half the height */
+    margin-left: -250px; /* Half the width */
+    background-size: cover;
+    z-index: 2;
+    border-radius: 10px;
+}
+
+.contents-photo i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background-color: gray;
+    color: white;
+    opacity: 0.5;
+}
+
+.contents-photo span {
+    padding: 10px;
+}
+
+.invisible {
+    display: none;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+main .image-contents {
+    width: 500px;
+    height: 300px;
+}
+
+/* page 2 */
+
+main .main-map {
+    position: relative;
+    margin: 50px;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/turks-and-caicos-map.png");
+    background-size: cover;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+main .bigger-map {
+    position: relative;
+    margin: 50px;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/turks-and-caicos-map-big.png");
+    background-size: cover;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.bigger-map .location-marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: orange;
+    animation: highlight 1.2s linear infinite;
+    z-index: 3;
+}
+
+.bigger-map .point1 {
+    top: 54%;
+    left: 79%;
+}
+
+@keyframes highlight {
+    100%{
+        transform: scale(5);
+        opacity: 0;
+    }
+}
+
+/* page3 */
+
+.main-map .location-marker {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    animation: none;
+    z-index: 3;
+}
+
+.main-map .location-marker:hover {
+    opacity:0.7;
+}
+
+.main-map .point2 {
+    color: rgb(167, 113, 14);
+    top: 30%;
+    left: 30%;
+}
+
+.main-map .point3 {
+    color: purple;
+    top: 70%;
+    left: 90%;
+}
+
+.main-map .point4 {
+    color: blue;
+    top: 30%;
+    left: 13%;
+}
+
+.main-map .point5 {
+    color: green;
+    top: 60%;
+    left: 85%;
+}
+
+.main-map .point6 {
+    color: pink;
+    top: 35%;
+    left: 25%;
+}
+
+.location-marker:hover {
+    cursor: pointer;
+}
+
+.main-map .location-marker:hover {
+    animation: shake 0.5s linear infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(0.5px, 0.5px) rotate(0deg); }
+    10% { transform: translate(-0.5px, -1px) rotate(-0.5deg); }
+    20% { transform: translate(-1.5px, 0px) rotate(0.5deg); }
+    30% { transform: translate(2px, 1.5px) rotate(0deg); }
+    40% { transform: translate(0.5px, -0.5px) rotate(0.5deg); }
+    50% { transform: translate(-0.5px, 1px) rotate(-0.5deg); }
+    60% { transform: translate(-1px, 1px) rotate(0deg); }
+    70% { transform: translate(1px, 1px) rotate(-0.5deg); }
+    80% { transform: translate(-0.5px, -0.5px) rotate(0.5deg); }
+    90% { transform: translate(1px, 1.5px) rotate(0deg); }
+    100% { transform: translate(1px, -1.5px) rotate(-0.5deg); }
+  }
+
+/* page 4 */
+.page4 .contents-explain {
+    margin: 0px 20px;
+}
+
+.page4 .logos{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px;
+    background-color: #808B96;
+}
+
+.page4 .logos ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.page4 .logos img{
+    width: 140px;
+    height: 25px;
+    padding: 10px;
+}
+
+main .flight-map {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    font-size: 12px;
+    background-image: url("../images/turks-and-caicos-flight-map.png");
+    background-size: cover;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+main .flight-map .flight-marker, main .flight-map .location-marker{
+    position: absolute;
+    color: black;
+    z-index: 5;
+}
+
+/* flight from Toronto*/
+
+.flight-map .toronto {
+    top: 26%;
+    left: 47%;
+}
+
+.flight-map .point7 {
+    top: 26%;
+    left: 47%;
+    animation: flightmove-toronto 6s linear infinite;
+}
+
+.flight-map .point7 i{
+    transform: rotate(45deg);
+}
+
+@keyframes flightmove-toronto {
+    0% {
+        top: 26%;
+        left: 50%;
+      }
+    100% {
+        top: 78%;
+        left: 66%;
+        transform: rotate(50deg);
+    }
+}
+
+
+/* flight from Montreal*/
+
+.flight-map .montreal {
+    top: 18%;
+    left: 55%;
+}
+
+.flight-map .point8 {
+    top: 18%;
+    left: 65%;
+    animation: flightmove-montreal 6s linear infinite;
+}
+
+.flight-map .point8 i{
+    transform: rotate(65deg);
+}
+
+
+@keyframes flightmove-montreal {
+    0% {
+        top: 18%;
+        left: 65%;
+      }
+    100% {
+        top: 78%;
+        left: 66%;
+        transform: rotate(20deg);
+    }
+}
+
+
+/* New York */
+
+.flight-map .newyork {
+    top: 30%;
+    left: 63%;
+}
+
+.flight-map .point9 {
+    top: 30%;
+    left: 63%;
+    animation: flightmove-newyork 5s linear infinite;
+}
+
+.flight-map .point9 i{
+    transform: rotate(65deg);
+}
+
+@keyframes flightmove-newyork {
+    0% {
+        top: 30%;
+        left: 63%;
+      }
+    100% {
+        top: 78%;
+        left: 66%;
+        transform: rotate(20deg);
+    }
+}
+
+/* Atlanta */
+.flight-map .atlanta {
+    top: 57%;
+    left: 50%;
+}
+
+.flight-map .point10 {
+    top: 57%;
+    left: 50%;
+    animation: flightmove-atlanta 3s linear infinite;
+}
+
+.flight-map .point10 i{
+    transform: rotate(25deg);
+}
+
+@keyframes flightmove-atlanta {
+    0% {
+        top: 57%;
+        left: 50%;
+      }
+    100% {
+        top: 78%;
+        left: 66%;
+        transform: rotate(50deg);
+    }
+}
+
+/* Miami */
+.flight-map .miami {
+    top: 70%;
+    left: 54%;
+}
+
+.flight-map .point11 {
+    top: 70%;
+    left: 54%;
+    animation: flightmove-miami 2.5s linear infinite;
+}
+
+.flight-map .point11 i{
+    transform: rotate(25deg);
+}
+
+@keyframes flightmove-miami {
+    0% {
+        top: 70%;
+        left: 54%;
+      }
+    100% {
+        top: 78%;
+        left: 66%;
+        transform: rotate(10deg);
+    }
+}
+
+/* Charlotte */
+.flight-map .charlotte {
+    top: 52%;
+    left: 58%;
+}
+
+.flight-map .point12 {
+    top: 52%;
+    left: 58%;
+    animation: flightmove-charlotte 4s linear infinite;
+}
+
+.flight-map .point12 i{
+    transform: rotate(55deg);
+}
+
+@keyframes flightmove-charlotte {
+    0% {
+        top: 52%;
+        left: 58%;
+      }
+    100% {
+        top: 78%;
+        left: 66%;
+        transform: rotate(20deg);
+    }
+}
+
+/* Turks and Caicos */
+.flight-map .turks-and-caicos {
+    top: 78%;
+    left: 67%;
+}
+
+.flight-map .turks-and-caicos i{
+    color: yellow;
+}
+
+/* page5 */
+main .main-contents .page5 {
+    display: flex;
+    flex-direction: column;
+}
+
+main .main-contents .page5 .contents-explain {
+    width: 1000px;
+}
+
+.page5 .detail-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 20px;
+    width: 50%;
+    height: 100%;
+    background-image: url("../images/turks-and-caicos-map.png");
+    background-size: cover;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.page5 .clickButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: gray;
+    opacity: 0.7;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.page5 .clickButton:hover {
+    opacity: 0.3;
+}
+
+.page5 .zoom-in-map {
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top:30%;
+    left:25%;
+    background-color: orange;
+    opacity: 0.7;
+    animation: blinking 1s linear infinite;
+    animation: zoom-in 1.5s linear 0.5s normal forwards;
+}
+
+@keyframes blinking {
+    0%{     background-color: orange; }
+    49%{    background-color: orange; }
+    60%{    background-color: transparent; }
+    99%{    background-color: transparent; }
+    100%{   background-color: orange; }
+}
+
+@keyframes zoom-in {
+    100%{transform: translate(600px, 50px) scale(3.8);; }
+}
+
+.page5 .hotel-map {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 20px;
+    width: 50%;
+    height: 100%;
+    background-image: url("../images/turks-and-caicos-map-hotels.png");
+    background-size: cover;
+    border-radius: 10px;
+    z-index: 4;  
+}
+
+.page5 .image-contents {
+    display: flex;
+    width: 100%;
+}
+
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px;
+    height: 50px;
+}
+
+footer div {
+    padding: 5px 15px;
+}
+
+footer .button{
+    width: 100px;
+    height: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color:#0B0C10;
+    background-color: aliceblue   ;
+    border: 1px solid #66FCF1 ;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+footer .active-button {
+    cursor: pointer;
+    background-color: yellow;
+    opacity: 1;
+}

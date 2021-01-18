@@ -1,0 +1,94 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color:#1A1734;
+    font-family: 'Poppins', sans-serif;
+    color: aliceblue;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+main {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-map {
+    width: 800px;
+    height: 500px;
+    background-image: url("../images/map.png");
+    background-size: cover;
+    position: relative;
+}
+
+.main-contents {
+    width: 230px;
+    height: 500px;
+    position: relative;
+    background-color: #0D0C1C;
+}
+
+.destination-points span {
+    font-size: 12px;
+    position: absolute;
+    top: 38%;
+    left: 53%;
+    z-index: 3;
+    animation: highlight 1.2s linear infinite;
+}
+
+.destination-points #point-1 {
+    top: 38%;
+    left: 53%;
+}
+
+.destination-points #point-2 {
+    top: 59%;
+    left: 81%;
+}
+
+.destination-points #point-3 {
+    top: 83%;
+    left: 84%;
+}
+
+.destination-points #point-4 {
+    top: 74%;
+    left: 86%;
+}
+
+.destination-points #point-5 {
+    top: 52%;
+    left: 80%;
+}
+
+.destination-points #point-6 {
+    top: 79%;
+    left: 90%;
+}
+
+.destination-points #point-7 {
+    top: 56%;
+    left: 84%;
+}
+
+.destination-points #point-8 {
+    top: 46%;
+    left: 30%;
+}
+
+
+.island-info {
+    display: none;
+    padding: 10px;
+}
+
+.island-info h1 {
+    font-size: 20px;
+}

@@ -1,0 +1,57 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: aliceblue;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/intro.png");
+    background-size: cover;
+}
+
+strong {
+    font-weight: 700;
+}
+
+#intro-main {
+    font-size: 38px;
+    margin: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+#intro-content {
+    font-size: 30px;
+    margin: 60px 100px;
+    text-align: center;
+    line-height: 40px;
+}
+
+#intro-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 100;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#intro-button:hover {
+    opacity: 50%;
+}
+
+#intro-button span a {
+    text-decoration: none;
+    color: aliceblue;
+}
